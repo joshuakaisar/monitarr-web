@@ -10,6 +10,7 @@ const STATUS_COLOR_MAP = {
   stalled: "var(--color-semantic-warning)",
   pending: "var(--color-semantic-warning)",
   downloading: "var(--color-semantic-info)",
+  paused: "var(--color-text-secondary)",
   monitored: "var(--color-semantic-success)",
   unmonitored: "var(--color-text-secondary)",
 } as const;

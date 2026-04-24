@@ -69,7 +69,7 @@ function StatTilesRow() {
   const queue = useQueue();
 
   const stalledCount =
-    queue.data?.filter((q) => q.status === "warning" || q.status === "stalled")
+    queue.data?.filter((q) => q.status === "stalled")
       .length ?? 0;
 
   const lidarrConnected = status.data?.lidarr?.connected ?? false;
@@ -163,7 +163,7 @@ function UnifiedSystemTerminal() {
     (q) => q.status === "downloading" || q.progress < 100,
   ) ?? [];
   const pendingCount = queue.data?.filter(
-    (q) => q.status === "queued" || q.status === "pending" || q.progress === 0,
+    (q) => q.status === "pending" || q.progress === 0,
   ).length ?? 0;
 
   const totalDisk = (sonarr.data?.diskSpace ?? 0) + (radarr.data?.diskSpace ?? 0);
@@ -402,7 +402,7 @@ function DownloadsSection() {
 }
 
 function DownloadRow({ item }: { item: QueueItem }) {
-  const isStalled = item.status === "stalled" || item.status === "warning";
+  const isStalled = item.status === "stalled";
   const mins = etaMinutes(item.eta);
 
   return (

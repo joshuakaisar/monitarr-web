@@ -8,15 +8,26 @@ export type ServiceStatus = {
 
 export type SystemStatus = Record<ServiceName, ServiceStatus>;
 
+export type QueueItemStatus =
+  | "downloading"
+  | "stalled"
+  | "paused"
+  | "completed"
+  | "failed"
+  | "pending";
+
 export type QueueItem = {
-  id: number;
+  id: string;
   title: string;
+  subtitle: string;
   service: "sonarr" | "radarr" | "lidarr";
-  status: string;
+  status: QueueItemStatus;
   progress: number;
   eta: string | null;
   size: number;
   quality: string;
+  indexer?: string;
+  addedAt: string;
 };
 
 export type QueueResponse = {

@@ -43,3 +43,28 @@ export type ActivityItem = {
   date: string;
   quality: string;
 };
+
+export type ActivityEventType =
+  | "grabbed"
+  | "imported"
+  | "failed"
+  | "deleted"
+  | "renamed";
+
+export type ActivityEvent = {
+  id: string;
+  title: string;
+  subtitle: string;
+  service: "sonarr" | "radarr" | "lidarr";
+  eventType: ActivityEventType;
+  quality: string;
+  date: string;
+  size?: number;
+  indexer?: string;
+  releaseTitle?: string;
+};
+
+export type ActivityGroup = {
+  date: string;
+  events: ActivityEvent[];
+};

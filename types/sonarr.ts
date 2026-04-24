@@ -21,6 +21,12 @@ export type SonarrHistoryRecord = {
   date: string;
   quality?: { quality?: { name?: string } };
   series?: { title?: string };
+  episode?: { title?: string; seasonNumber?: number; episodeNumber?: number };
+  data?: {
+    indexer?: string;
+    releaseTitle?: string;
+    size?: string;
+  };
 };
 
 export type SonarrHistoryResponse = {

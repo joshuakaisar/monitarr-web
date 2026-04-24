@@ -17,6 +17,11 @@ export type RadarrHistoryRecord = {
   date: string;
   quality?: { quality?: { name?: string } };
   movie?: { title?: string };
+  data?: {
+    indexer?: string;
+    releaseTitle?: string;
+    size?: string;
+  };
 };
 
 export type RadarrHistoryResponse = {

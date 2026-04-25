@@ -1,0 +1,25 @@
+services:
+  monitarr:
+    image: ghcr.io/joshuakaisar/monitarr-web:latest
+    container_name: monitarr
+    ports:
+      - "3000:3000"
+    environment:
+      - SONARR_URL=http://sonarr:8989
+      - SONARR_API_KEY=
+      - RADARR_URL=http://radarr:7878
+      - RADARR_API_KEY=
+      - LIDARR_URL=http://lidarr:8686
+      - LIDARR_API_KEY=
+      - PROWLARR_URL=http://prowlarr:9696
+      - PROWLARR_API_KEY=
+      - AUTH_ENABLED=false
+      - AUTH_PASSWORD=
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
